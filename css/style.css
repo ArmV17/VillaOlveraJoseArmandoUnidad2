@@ -96,6 +96,22 @@ nav ul li a:hover {
   text-align: center;
 }
 
+/* Botón primario */
+.btn-primary {
+  background-color: #ff85d5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e072bd;
+}
+
 /* Banner de logo */
 .logo-banner img {
   width: 100%;
@@ -110,6 +126,46 @@ nav ul li a:hover {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
+}
+
+/* Galería piramidal */
+.photo-pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.photo-pyramid img {
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.top-photo img {
+  width: 280px;
+  height: 280px;
+}
+
+.bottom-photos {
+  display: flex;
+  gap: 25px;
+}
+
+.bottom-photos .Foto2 {
+  width: 300px;
+  height: 300px;
+}
+
+.bottom-photos .Foto3 {
+  width: 340px;
+  height: 340px;
+}
+
+.photo-pyramid img:hover {
+  transform: scale(1.05);
 }
 
 /* Formulario contacto y comentarios */
@@ -193,4 +249,20 @@ footer {
     width: 100%;
     height: auto;
   }
+}
+
+/* Animación de aparición para productos u otros elementos */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aparecer {
+  animation: aparecer 0.6s ease-out forwards;
 }
