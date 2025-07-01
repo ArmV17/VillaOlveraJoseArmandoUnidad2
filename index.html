@@ -101,5 +101,99 @@
     </div>
   </footer>
 
+<script>
+    class Producto {
+        constructor(nombre, imagen) {
+        this.nombre = nombre;
+        this.imagen = imagen;
+        }
+
+        render() {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <img src="${this.imagen}" alt="${this.nombre}" style="width: 250px; height: 250px; object-fit: cover; border-radius: 10px;">
+            <strong style="color: #ff85d5; display: block; margin-top: 10px;">${this.nombre}</strong>
+        `;
+        div.style.textAlign = 'center';
+        div.style.transition = 'transform 0.3s ease';
+        div.classList.add('aparecer');
+        div.addEventListener('mouseenter', () => div.style.transform = 'scale(1.05)');
+        div.addEventListener('mouseleave', () => div.style.transform = 'scale(1)');
+        return div;
+        }
+    }
+
+    const listaProductos = [
+        new Producto("15 Años", "img/15años.jpg"),
+        new Producto("Boda", "img/boda.jpg"),
+        new Producto("Confirmación", "img/confirmacion.jpg"),
+        new Producto("Cumpleaños", "img/cumple.jpg"),
+        new Producto("Flor", "img/Flor.jpg"),
+        new Producto("Graduación", "img/graduacion.jpg"),
+        new Producto("Ramo", "img/Ramo.jpg"),
+        new Producto("Ramo 1", "img/Ramo1.jpg"),
+        new Producto("Ramo 10", "img/ramo10.jpg"),
+        new Producto("Ramo 15", "img/ramo15.jpg"),
+        new Producto("Ramo 30", "img/ramo30.jpg"),
+        new Producto("Tienda", "img/Tienda.jpg")
+    ];
+
+    function renderProductos(productos) {
+        const contenedor = document.getElementById('contenedor-productos');
+        contenedor.innerHTML = '';
+        productos.forEach(p => contenedor.appendChild(p.render()));
+    }
+
+    function filtrarProductos() {
+        const texto = document.getElementById('busqueda').value.toLowerCase();
+        const contenedor = document.getElementById('contenedor-productos');
+        
+        // Mostrar contenedor si está oculto
+        if (texto !== '' && contenedor.style.display === 'none') {
+        contenedor.style.display = 'grid';
+        document.getElementById('ver-todos-btn').textContent = 'Ocultar';
+        }
+
+        const filtrados = listaProductos.filter(p => p.nombre.toLowerCase().includes(texto));
+        renderProductos(filtrados);
+
+        // Si el campo está vacío y no se hizo clic en "Ver todos", vacía el contenedor
+        if (texto === '' && !verTodosActivo) {
+        contenedor.innerHTML = '';
+        contenedor.style.display = 'none';
+        document.getElementById('ver-todos-btn').textContent = 'Ver todos';
+        }
+    }
+
+    let verTodosActivo = false;
+
+    function toggleProductos() {
+        const contenedor = document.getElementById('contenedor-productos');
+        const btn = document.getElementById('ver-todos-btn');
+
+        verTodosActivo = !verTodosActivo;
+
+        if (verTodosActivo) {
+        contenedor.style.display = 'grid';
+        renderProductos(listaProductos);
+        btn.textContent = 'Ocultar';
+        } else {
+        contenedor.style.display = 'none';
+        btn.textContent = 'Ver todos';
+        }
+
+        // Si hay texto en la búsqueda, mantener la búsqueda activa
+        const texto = document.getElementById('busqueda').value.toLowerCase();
+        if (texto) {
+        filtrarProductos();
+        }
+    }
+
+    window.onload = () => {
+        document.getElementById('contenedor-productos').style.display = 'none';
+        cargarComentarios();
+    };
+</script>
+
 </body>
 </html>
