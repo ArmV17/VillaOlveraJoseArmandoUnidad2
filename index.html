@@ -189,6 +189,22 @@
         }
     }
 
+    async function cargarComentarios() {
+        try {
+        const res = await fetch('comentarios.json');
+        const data = await res.json();
+        const contenedor = document.getElementById('comentarios-lista');
+        contenedor.innerHTML = '';
+        data.forEach(com => {
+            const p = document.createElement('p');
+            p.textContent = `💬 ${com.nombre}: ${com.mensaje}`;
+            contenedor.appendChild(p);
+        });
+        } catch (e) {
+        document.getElementById('comentarios-lista').textContent = 'No se pudieron cargar comentarios.';
+        }
+    }
+
     window.onload = () => {
         document.getElementById('contenedor-productos').style.display = 'none';
         cargarComentarios();
