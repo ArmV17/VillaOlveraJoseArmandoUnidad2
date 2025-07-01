@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Creaciones Ivy</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+
+<body>
+  <header>
+    <div class="container nav-container">
+      <div style="display: flex; align-items: center;">
+        <div class="logo-box">
+          <img src="img/logo.png" alt="Logo" width="70">
+          <span>Creaciones Ivy</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#productos">Catálogo</a></li>
+          <li><a href="#ayuda">Ayuda</a></li>
+          <li><a href="#comentarios">Comentarios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h2>Decoraciones de Eventos y Ramos de Flores Eternas</h2><br><hr><br>
+        <p>
+          En <strong>Creaciones Ivy</strong>, somos especialistas en diseñar momentos inolvidables que perduran en el corazón de tus seres queridos.<br>
+          Creamos ambientes únicos para celebrar cumpleaños, aniversarios, bodas y eventos especiales.
+        </p>
+        <p>
+          Nuestros ramos de flores, cuidadosamente arreglados con pasión, están pensados para transmitir emociones profundas.
+        </p><br>
+        <div class="logo-banner">
+          <img src="img/banner.png" alt="Logo Creaciones Ivy">
+        </div>
+      </div>
+
+      <div class="photo-pyramid">
+        <div class="top-photo">
+          <img src="img/graduacion.jpg" alt="Foto 1">
+        </div>
+        <div class="bottom-photos">
+          <img src="img/Flor.jpg" alt="Foto 2" class="Foto2">
+          <img src="img/boda.jpg" alt="Foto 3" class="Foto3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos" class="hero">
+    <div class="container">
+      <h2 style="text-align: center; color: #ff85d5;">Catálogo de Productos</h2>
+      <form style="text-align: center; margin: 20px 0;">
+        <input type="text" id="busqueda" onkeyup="filtrarProductos()" placeholder="Buscar producto..." style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ccc;">
+        <button class="btn-primary" type="button" id="ver-todos-btn" onclick="toggleProductos()">Ver todos</button>
+      </form>
+      <div id="contenedor-productos" class="hero-grid" style="margin-top: 30px;"></div>
+    </div>
+  </section>
+
+
+  <section id="ayuda" class="hero" style="background: #fff5fb; padding: 60px 20px;">
+    <div class="container">
+      <h2 style="text-align: center; color: #ff85d5;">¿Necesitas Ayuda?</h2>
+      <div style="margin-top: 40px;">
+        <h3 style="color: #ff85d5;">Preguntas Frecuentes (FAQs)</h3>
+        <div class="faq-box">
+          <h4>¿Cómo puedo registrarme?</h4>
+          <p>Dirígete a la sección de registro y llena el formulario.</p>
+        </div>
+        <div class="faq-box">
+          <h4>¿Cómo restablezco mi contraseña?</h4>
+          <p>Haz clic en "¿Olvidaste tu contraseña?" y sigue las instrucciones.</p>
+        </div>
+        <div class="faq-box">
+          <h4>¿Cómo contacto con soporte?</h4>
+          <p>Envíanos un correo a <a href="mailto:armandorex2@cgmail.com">armandorex2@cgmail.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comentarios" class="hero">
+    <div class="container">
+      <h2>Comentarios</h2>
+      <div id="comentarios-lista" style="color: #888;">Cargando comentarios...</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Creaciones Ivy. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
